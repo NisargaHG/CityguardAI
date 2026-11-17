@@ -1,17 +1,17 @@
-# CityGuard AI
-### Intelligent Urban Disruption Management System
+# CityGuard AI – Intelligent Urban Traffic Disruption Management System
 
 **Smarter Decisions. Safer Cities. Better Mobility.**
 
-CityGuard AI is an intelligent urban traffic disruption management and decision-support platform designed to help municipal traffic authorities and emergency responders manage planned and unexpected traffic disruptions through predictive analytics, AI-powered recommendations, resource optimization, and digital twin simulation.
+CityGuard AI is a data-driven urban traffic disruption management and decision-support platform designed to help analyze planned and unexpected traffic incidents.
 
-The platform transforms traditional reactive traffic management into a proactive, data-driven approach by identifying incidents, assessing risks, recommending response strategies, and simulating possible interventions before real-world execution.
+The project uses structured Bengaluru traffic event data, incident prioritization and an Urban Disruption Score (UDS) to provide insights into traffic disruptions, identify vulnerable zones and support better operational planning.
 
-## Problem Statement
+## Project Overview
 
-Urban traffic networks frequently experience disruptions that affect mobility, public safety, and emergency response.
+Urban traffic networks face several disruptions that affect mobility, public safety and emergency response.
 
-### Common Urban Disruptions
+Examples include:
+
 - Road accidents
 - Vehicle breakdowns
 - Waterlogging
@@ -20,140 +20,121 @@ Urban traffic networks frequently experience disruptions that affect mobility, p
 - Public events and rallies
 - Processions and protests
 - VIP movements
-- Sudden traffic congestion
+- Unexpected traffic congestion
 
-### Existing Challenges
-- Manual and delayed incident management.
-- Inefficient allocation of emergency resources.
-- Lack of centralized city-wide traffic visibility.
-- Difficulty identifying high-risk traffic zones.
-- No mechanism to simulate interventions before deployment.
-- Limited learning from historical traffic incidents.
+Traditional traffic management often depends on manual monitoring and delayed incident reporting.
 
-These challenges result in longer travel times, economic losses, delayed emergency response, and public inconvenience.
-
-## Our Solution
-
-CityGuard AI provides an integrated intelligent decision-support system that combines incident detection, risk assessment, resource deployment recommendations, digital twin simulation, and AI-assisted operational guidance.
-It enables traffic authorities to:
-- Monitor urban disruptions through a centralized dashboard.
-- Identify and prioritize high-risk incidents.
-- Visualize incident hotspots using geospatial heatmaps.
-- Recommend optimal resource deployment.
-- Simulate traffic interventions before execution.
-- Receive actionable recommendations through a natural-language AI advisor.
-- Improve future response strategies through post-event learning.
-  
-## System Workflow
-       Incident Detection
-               |
-               ▼
-        Risk Assessment
-               |
-               ▼
-       Resource Commander
-               |
-               ▼
-      Digital Twin Simulator
-               |
-               ▼
-            AI Advisor
-               |
-               ▼
-        Post-Event Learning
-               |
-               ▼
-      Continuous Improvement
+CityGuard AI explores a data-driven approach to analyzing these disruptions through an interactive dashboard and risk assessment mechanisms.
 
 ## Key Features
 
-### 1.Intelligent Dashboard
-- Centralized city-wide incident monitoring.
-- Real-time incident overview and operational KPIs.
-- Incident status and priority tracking.
-- Improved situational awareness for traffic operators.
+### 1. Interactive Traffic Management Dashboard
 
-### 2. Zone Risk Analysis
-- Identifies vulnerable traffic zones.
-- Evaluates incident severity and priority.
-- Supports spatial and temporal traffic analysis.
-- Helps authorities focus on high-risk locations.
+- Centralized visualization of traffic incidents.
+- Total incident statistics.
+- Planned and unplanned event monitoring.
+- Active incident tracking.
+- Operational Key Performance Indicators (KPIs).
 
-### 3.Risk HeatMap
-- Geospatial visualization of traffic incidents.
-- Highlights high-risk and congestion-prone areas.
-- Supports priority-based resource allocation.
+### 2. Urban Disruption Score (UDS)
 
-**Risk Visualization:**
-- 🔴 Red – High Risk
-- 🟠 Orange – Medium Risk
-- 🟢 Green – Low Risk
+The Urban Disruption Score is used to evaluate and prioritize traffic incidents.
 
-### 4. AI Advisor
-An AI-powered natural-language assistant that provides operational recommendations based on incident information.
+The current implementation calculates UDS using:
 
-**Example Input:**
+- Incident priority.
+- Road closure requirement.
+- Event type (planned or unplanned).
 
-"Major accident reported at Sarakki Circle."
+The score supports incident prioritization and traffic disruption analysis.
 
-**Suggested Recommendations:**
-- Deploy ambulance and traffic officers.
-- Activate alternative diversion routes.
-- Notify nearby hospitals.
-- Establish an emergency corridor.
-- Generate public traffic alerts.
+### 3. Traffic Incident Analysis
 
-### 5.Resource Commander
-Provides prioritized resource deployment recommendations based on incident type, location, and risk level.
+The dashboard provides visual analysis of:
 
-Potential resources include:
-- Traffic police officers.
-- Ambulances.
-- Tow trucks.
-- Barricades.
-- Diversion support units.
+- Most frequently occurring incident types.
+- Distribution of incidents across traffic zones.
+- Average Urban Disruption Score.
+- Maximum Urban Disruption Score.
+- Critical incidents based on the configured UDS threshold.
 
-### 6.Digital Twin Simulator
-Simulates urban traffic disruption scenarios and evaluates possible interventions before actual deployment.
+### 4. Zone Vulnerability Analysis
 
-**Example Scenario:**
+The system groups incidents by traffic zone and calculates average UDS to generate a zone vulnerability ranking.
 
-Vehicle Breakdown – Sarakki Circle
+This helps identify areas with higher incident-related disruption scores.
 
-| Parameter | Simulated Result |
+### 5. Data Visualization
+
+Interactive dashboard elements provide:
+
+- Incident distribution charts.
+- Top traffic-zone charts.
+- UDS statistical metrics.
+- Zone vulnerability rankings.
+
+## System Workflow
+
+```text
+      Bengaluru Traffic Events Dataset
+                    |
+                    v
+             Data Processing
+                 Pandas
+                    |
+                    v
+           Incident Classification
+                    |
+                    v
+          Urban Disruption Score
+                    |
+                    v
+           Risk Analysis & Metrics
+                    |
+             +------+------+
+             |             |
+             v             v
+        Incident       Zone-Level
+        Analysis       Analysis
+             |             |
+             +------+------+
+                    |
+                    v
+          Streamlit Dashboard
+                    |
+                    v
+       Traffic Decision Support
+```
+
+## Technology Stack
+
+| Component | Technology |
 |---|---|
-| Initial Risk Score | 82 |
-| Incident | Vehicle Breakdown |
-| Recommended Action | Deploy officers and tow truck |
-| Additional Intervention | Diversion and barricades |
-| Risk After Intervention | 42 |
-
-The simulation demonstrates how proposed interventions can potentially reduce traffic risk and improve incident clearance.
-
-*Note: These values represent the illustrative scenario in the project presentation, not independently validated real-world results.*
-
-### 7.Post-Event Learning
-- Reviews completed traffic incidents.
-- Supports analysis of intervention outcomes.
-- Helps refine risk assessment models.
-- Enables continuous improvement of operational procedures.
-
----
+| Programming Language | Python |
+| Dashboard | Streamlit |
+| Data Processing | Pandas |
+| Data Storage | CSV |
+| Risk Assessment | Urban Disruption Score |
+| Visualization | Streamlit Charts |
+| Development Environment | VS Code |
+| Version Control | Git and GitHub |
 
 ## Dataset – Bengaluru Traffic Events
 
-CityGuard AI uses a Bengaluru traffic events dataset designed to support spatial-temporal modelling, incident prediction, and urban traffic planning.
+The project uses a structured Bengaluru traffic events dataset for analyzing urban disruptions.
 
-### Dataset Information
+The dataset includes information such as:
 
-The dataset includes:
-- Planned and unplanned traffic events.
-- Incident categories and causes.
-- Incident priority and status.
-- Traffic zone metadata.
-- Geographic location coordinates.
+- Event type.
+- Incident cause.
+- Incident priority.
+- Incident status.
+- Road closure requirement.
+- Traffic zone information.
+- Geographic location information, where available.
 
 ### Supported Incident Categories
+
 1. Vehicle Breakdown
 2. Road Accident
 3. Waterlogging
@@ -165,44 +146,112 @@ The dataset includes:
 9. VIP Movement
 10. Traffic Congestion
 
-The structured dataset provides a foundation for identifying traffic patterns, assessing risk levels, and supporting operational planning.
+## Project Structure
+
+```text
+CityguardAI/
+│
+├── data/
+│   └── events.csv
+│
+├── models/
+│
+├── notebooks/
+│
+├── pages/
+│
+├── utils/
+│   └── uds.py
+│
+├── Dashboard.py
+├── requirements.txt
+└── README.md
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.10 or later (use a version compatible with the project dependencies).
+- pip package manager.
+- Git.
+- VS Code or another Python IDE.
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/NisargaHG/CityguardAI.git
+
+cd CityguardAI
+```
+
+### 2. Create a Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+Activate it on Windows:
+
+```powershell
+.\venv\Scripts\activate
+```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run the Dashboard
+
+```bash
+streamlit run Dashboard.py
+```
+
+The dashboard will open in your browser, usually at:
+
+```text
+http://localhost:8501
+```
+
+## Sample Dashboard Analytics
+
+The dashboard calculates and displays:
+
+| Metric | Description |
+|---|---|
+| Total Incidents | Total records in the dataset |
+| Planned Events | Number of planned events |
+| Unplanned Events | Number of unplanned events |
+| Active Incidents | Number of active incidents |
+| Average UDS | Mean Urban Disruption Score |
+| Maximum UDS | Highest calculated UDS |
+| Critical Incidents | Incidents with UDS greater than or equal to 90 |
+| Zone Vulnerability | Ranking based on average UDS per zone |
+
+## Future Enhancements
+
+The project can be extended with:
+
+- Live traffic data integration.
+- Automated incident detection using CCTV feeds.
+- Advanced traffic congestion prediction.
+- Geospatial risk heatmaps.
+- Emergency resource allocation recommendations.
+- Digital twin-based traffic intervention simulation.
+- AI-assisted traffic management recommendations.
+- Emergency vehicle tracking.
+- Smart traffic signal coordination.
+- Historical incident analysis and model improvement.
+
+## Project Objective
+
+CityGuard AI aims to support smarter urban traffic management by transforming structured traffic event data into meaningful insights.
+
+Through incident analysis, risk scoring and interactive visualization, the project explores how data-driven decision support can improve urban mobility planning and emergency response coordination.
+
 
 ---
 
-## Why CityGuard AI?
-
-| Innovation | Impact |
-|---|---|
-| Urban Disruption Score (UDS) | Intelligent incident prioritization |
-| Risk HeatMap | Better spatial awareness |
-| Resource Commander | Optimized resource allocation |
-| Digital Twin | Pre-deployment scenario evaluation |
-| AI Advisor | Faster decision support |
-| Post-Event Learning | Continuous system improvement |
-
-## Future Scope
-
-CityGuard AI can be extended through:
-- Integration with live traffic feeds.
-- CCTV-based automated incident detection.
-- IoT traffic and environmental sensors.
-- Emergency vehicle tracking.
-- Smart traffic signal coordination.
-- Advanced traffic-flow prediction.
-- Integration with municipal traffic control rooms.
-- Improved digital twin models using real-world traffic data.
-## Expected Outcomes
-- Reduced traffic congestion.
-- Faster incident response and clearance.
-- Better emergency resource utilization.
-- Improved urban traffic planning.
-- Enhanced coordination among traffic authorities.
-- Safer and more efficient urban mobility.
-## Conclusion
-
-CityGuard AI aims to transform urban traffic management from reactive incident handling into predictive and intelligent decision-making.
-
-By combining AI-powered analytics, geospatial visualization, resource optimization, digital twin simulation, and natural-language assistance, the platform provides a unified approach to managing urban disruptions.
-
-**Building Smarter and Safer Cities with AI.**
 *CityGuard AI – Smarter Decisions. Safer Cities. Better Mobility.*
